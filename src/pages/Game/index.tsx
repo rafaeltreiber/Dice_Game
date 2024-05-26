@@ -8,12 +8,9 @@ export function Game() {
   const { player1Name, player2Name, currentPlayer, switchCurrentPlayer, gameScore, currentPosition, alterGamePosition, alterGameScore } = useContext(GameContext)
   const [winnerplayer, setwinnerPlayer] = useState('None')
   const [isEndGame, setIsEndGame] = useState(false)
-
-  // const [timeoutValue, setTimeoutValue] = useState(1000)
   const [diceValue, setDiceValue] = useState(0)
 
   function rollDice() {
-
     const newDiceValue = Math.floor(Math.random() * 6 + 1);
     setDiceValue(newDiceValue)
     moveRope(newDiceValue)
@@ -54,7 +51,6 @@ export function Game() {
           <span>Jogador Atual: {currentPlayer === 0 ? player1Name : player2Name}</span>
         </div>
         <div className="flex items-center justify-center w-full">
-          <button onClick={() => setIsEndGame(true)} className="p-4 border-2 border-grey-200 rounded-lg max-w-32">Teste</button>
           <button onClick={rollDice} className="p-4 border-2 border-grey-200 rounded-lg max-w-32">Rolar dado</button>
         </div>
         <div className="flex w-full justify-center mt-10">
@@ -80,7 +76,6 @@ export function Game() {
         </div>
       </Card>
 
-
       <Dialog open={isEndGame}>
         <DialogContent className="sm:max-w-[425px]">
           <div className="flex w-wull items-center justify-center">
@@ -88,8 +83,6 @@ export function Game() {
           </div>
         </DialogContent>
       </Dialog>
-
-
     </div>
   )
 }
